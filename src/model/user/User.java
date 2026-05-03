@@ -17,9 +17,9 @@ public class User {
         this.name = name;
     }
 
-    public String getName(){
-        return name;
-    }
+    public String getName(){ return name; }
+    public String getLogin(){ return login; }
+    public String getPassword(){ return password; }
 
     @Override
     public String toString(){

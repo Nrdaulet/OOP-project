@@ -29,7 +29,19 @@ public class Course {
         instructors.add(teacher);
     }
 
-    public int getCredits() {
-        return credits;
+    public void addLesson(Lesson lesson) {
+        lessons.add(lesson);
+    }
+
+    public String getCode() { return code; }
+    public String getName() { return name; }
+    public int getCredits() { return credits; }
+    public List<Student> getStudents() { return students; }
+    public List<Teacher> getInstructors() { return instructors; }
+    public List<Lesson> getLessons() { return lessons; }
+
+    @Override
+    public String toString() {
+        return code + " - " + name + " (" + credits + " credits)";
     }
 }
