@@ -3,10 +3,13 @@ package model.academic;
 import model.user.Student;
 import model.user.Teacher;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.Serializable;
 
-public class Course {
+public class Course implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String code;
     private String name;
     private int credits;
@@ -22,14 +25,47 @@ public class Course {
     }
 
     public void addStudent(Student student) {
-        students.add(student);
+        if(!students.contains(student)) {
+            students.add(student);
+        }
     }
 
     public void addInstructor(Teacher teacher) {
-        instructors.add(teacher);
+        if(!instructors.contains(teacher)) {
+            instructors.add(teacher);
+        }
     }
 
     public int getCredits() {
         return credits;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public List<Teacher> getInstructors() {
+        return instructors;
+    }
+
+    @Override
+    public String toString() {
+        return code + " - " + name + " (" + credits + " credits)";
+    }
+
+    public void addLesson(Lesson lesson) {
+        lessons.add(lesson);
+    }
+
+    public List<Lesson> getLessons() {
+        return lessons;
     }
 }
